@@ -30,9 +30,4 @@ public class Product {
     @ManyToOne
     @NotNull
     private Category category;
-    @ManyToOne
-    @NotNull
-    private User user;
-    @OneToMany(mappedBy = "product")
-    private List<@NotNull Order> orders;
 }

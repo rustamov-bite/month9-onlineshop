@@ -23,12 +23,5 @@ public class User {
     private String email;
     @Size(min = 6, max = 6, message = "Please write password between 6 and 8 symbols.")
     private String password;
-
-    @OneToMany(mappedBy = "user")
-    private List<@NotNull Product> products;
-    @OneToMany(mappedBy = "user")
-    private List<@NotNull Order> orders;
-    @OneToMany(mappedBy = "user")
-    private List<@NotNull Feedback> feedbacks;
 }
 
