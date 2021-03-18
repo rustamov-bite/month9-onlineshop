@@ -1,5 +1,6 @@
 package com.shop.shop.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,6 +13,8 @@ import java.util.List;
 @Data
 @Entity
 @Table(name="products")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +30,9 @@ public class Product {
     @Positive
     private Integer price;
 
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
     @NotNull
     private Category category;
 }

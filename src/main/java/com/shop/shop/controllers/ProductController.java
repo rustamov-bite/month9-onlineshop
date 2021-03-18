@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/allProductsByName")
+    @GetMapping("/name")
     public Page<Product> getAllProductsByName(@RequestParam("name") String name,
                                         @RequestParam("page") Integer page,
                                         @RequestParam("size") Integer size){
