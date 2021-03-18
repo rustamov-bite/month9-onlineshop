@@ -29,4 +29,11 @@ public class ExceptionHandler {
         return ResponseEntity.unprocessableEntity()
                 .body(illegalResult);
     }
+    @org.springframework.web.bind.annotation.ExceptionHandler(ResourceNotFoundException.class)
+    protected ResponseEntity<Object> handleResourceNotFoundException(ResourceNotFoundException notFoundException) {
+        var notFound = "Not found:" + notFoundException.getResource() + " By Id:" + notFoundException.getId();
+
+        return ResponseEntity.unprocessableEntity()
+                .body(notFound);
+    }
 }
